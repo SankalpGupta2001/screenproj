@@ -3,13 +3,12 @@ import { View, FlatList, StyleSheet ,Dimensions} from 'react-native';
 import { useSelector } from 'react-redux';
 import CartItem from '../components/CartItem';
 import TotalCard from '../components/TotalCard';
-// import { ScrollView } from 'react-native-gesture-handler';
 import { ScrollView } from 'react-native-virtualized-view'
 
 const CartScreen = () => {
   const cartItems = useSelector((state) => state.cart.cartItems);
   const { width } = Dimensions.get('window');
-  const isPhone = width < 600; // You can adjust the breakpoint as needed
+  const isPhone = width < 600; 
   console.log(cartItems,"cart");
 
 
