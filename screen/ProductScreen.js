@@ -35,8 +35,7 @@ const ProductDetailScreen = ({ route, navigation }) => {
 const { width } = Dimensions.get('window');
 
 
-const isMobile = width < 768; // Assuming 768 is your breakpoint for mobile view
-
+const isMobile = width < 768; 
 
     return (
         <ScrollView style={{ padding: 10, backgroundColor: 'white' }}>
@@ -83,15 +82,7 @@ Go Back</Text>
           <Text style={{ fontSize: isMobile ? 14 : 20,color:"white", fontWeight: 'bold', backgroundColor: 'blue', borderRadius: 20, width: isMobile ? 90 : 120, padding: 4 }}>{product.discountPercentage}% OFF</Text>
         </View>
 
-        {/* {product.stock > 0 ? (
-          <View style={{ backgroundColor: 'green', padding: 5, borderRadius: 5, width: isMobile ? 60 : 70, alignItems: 'center' }}>
-            <Text style={{ color: 'white', fontWeight: 'bold' }}>In Stock</Text>
-          </View>
-        ) : (
-          <View style={{ backgroundColor: 'red', padding: 5, borderRadius: 5, width: isMobile ? 80 : 100, alignItems: 'center' }}>
-            <Text style={{ color: 'white', fontWeight: 'bold' }}>Out of Stock</Text>
-          </View>
-        )} */}
+        
       </View>
   
 
@@ -124,7 +115,6 @@ Go Back</Text>
   <View style={{ width: isMobile?"100%":"70%", backgroundColor: '#F4F4F4', borderRadius: 10, padding: 20 }}>
     <Text style={{ fontSize: 24, fontWeight: 'bold', marginBottom: 20 }}>Product Details</Text>
     <Text style={{ fontSize: 16 }}>Description: {product.description}</Text>
-    {/* Other details go here */}
   </View>
 </View>
 </View>
@@ -263,72 +253,4 @@ const styles = StyleSheet.create({
 });
 
 export default ProductDetailScreen;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            {/* <View style={styles.productDetailsContainer}>
-        <View style={styles.detailsContainer}>
-          <View style={styles.cardHeader}>
-            <Text style={styles.cardTitle}>Product Details</Text>
-          </View>
-          <View style={styles.cardBody}>
-            <Text style={styles.productName}>{product.title}</Text>
-            <Text style={styles.description}>Category: {product.category}</Text>
-            <Text style={styles.description} numberOfLines={5}>
-              Description: {product.description}
-            </Text>
-            <Text style={styles.description}>Reviews: {product.rating}</Text>
-            <StarRating value={product.rating} color="gold" text={`(${product.rating})`} />
-          </View>
-          <TouchableOpacity
-            onPress={handleFavoritesToggle}
-            style={{ backgroundColor: 'rgba(10, 0, 0, 0.1)', padding: 10, borderRadius: 10 }}
-          >
-            <Text style={styles.buttonText}>
-              {isProductInFavorites ? 'Remove from Favorites' : 'Add to Favorites'}
-            </Text>
-          </TouchableOpacity>
-        </View>
-
-        <View style={styles.summaryContainer}>
-          <View style={styles.cardheader}>
-            <Text>Summary</Text>
-          </View>
-          <Text style={styles.description}>{product.title}</Text>
-          <Text style={styles.description}>Brand: {product.brand}</Text>
-          <Text style={styles.description}>Price: {product.price}</Text>
-          <View style={{ alignItems: 'center', justifyContent: 'center' }}>
-            {product.stock > 0 ? (
-              <>
-                <Text style={{ ...styles.cardText, color: 'grey' }}>Status: In Stock</Text>
-                <View style={{ ...styles.qtyContainer, height: 100, alignItems: 'center', justifyContent: 'center' }}>
-                  <Picker
-                    selectedValue={cartItems.find((item) => item.id === product.id)?.qty || 1}
-                    onValueChange={(value) => handleQuantityChange(value)}
-                    style={{ padding: 5, width: 200, alignItems: 'center', justifyContent: 'center' }}
-                  >
-                    {[...Array(10).keys()].map((x) => (
-                      <Picker.Item key={x + 1} label={`${x + 1}`} value={x + 1} />
-                    ))}
-                  </Picker>
-                </View>
-                
-              </>
-            ) : (
-              <Text style={styles.cardText}>Status: Out Of Stock</Text>
-            )}
-          </View>
-        </View>
-      </View> */}
 
