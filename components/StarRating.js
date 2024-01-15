@@ -5,7 +5,7 @@ import { View, Text } from 'react-native';
 const StarRating = ({ value, color, text }) => {
   const renderStars = () => {
     const stars = [];
-    const roundedValue = Math.round(value * 2) / 2; // Round to nearest half
+    const roundedValue = Math.round(value * 2) / 2;
 
     for (let i = 1; i <= 5; i++) {
       const starIcon =
