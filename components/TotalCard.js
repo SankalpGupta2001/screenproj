@@ -22,7 +22,7 @@ const TotalCard = ({ cartItems }) => {
   const calculateTotalItems = () => {
     return cartItems.reduce((totalItems, item) => {
       const itemQty = item.qty || 1;
-      return totalItems + parseInt(itemQty, 10); // Convert to number
+      return totalItems + parseInt(itemQty, 10); 
     }, 0);
   
 
@@ -31,7 +31,6 @@ const TotalCard = ({ cartItems }) => {
   const handlePurchase = () => {
     dispatch(initiatePurchase(cartItems));
     setPurchaseComplete(true);
-    // You can also navigate to a success screen or perform other actions after purchase
   };
 
   return (
