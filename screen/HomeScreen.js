@@ -6,13 +6,8 @@ import { useNavigation } from '@react-navigation/native';
 import { addToCart } from '../redux/actions/cart';
 import { addToFavorites } from '../redux/actions/favorite';
 
-// HomeScreen component
 const HomeScreen = () => {
-  // State variables
   const [products, setProducts] = useState([]);
-  // const [filteredProducts, setFilteredProducts] = useState([]);
-  // const [paginatedProducts, setPaginatedProducts] = useState([]);
-
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
@@ -24,11 +19,8 @@ const HomeScreen = () => {
   const { width } = Dimensions.get('window');
 
 
-  const isMobile = width < 768; // Assuming 768 is your breakpoint for mobile view
+  const isMobile = width < 768; 
 
-
-
-  // Fetch data from API on component mount
   useEffect(() => {
     fetchData();
 
@@ -36,13 +28,12 @@ const HomeScreen = () => {
   }, []);
 
 
-  // Fetch data function
   const fetchData = async () => {
     try {
       const response = await axios.get('https://dummyjson.com/products');
       setProducts(response.data.products);
       setFilteredProducts(response.data.products); 
-      // setPaginatedProducts(response.data);
+ 
       setLoading(false);
 
 
@@ -64,7 +55,7 @@ const HomeScreen = () => {
         product.description.toLowerCase().includes(lowerCaseQuery)
     );
     setFilteredProducts(filtered);
-    setCurrentPage(1); // Reset current page when search query changes
+    setCurrentPage(1);
   };
 
 
@@ -141,24 +132,21 @@ const HomeScreen = () => {
 
 
 
-  // Pagination variables
   const [currentPage, setCurrentPage] = useState(1);
-  const productsPerPage = 2; // Adjust the number of products per page
+  const productsPerPage = 2; 
   const totalPages = Math.ceil(products.length / productsPerPage);
 
-  // Next page handler
   const handleNextPage = () => {
     setCurrentPage((prevPage) => prevPage + 1);
   };
 
-  // Previous page handler
+ 
   const handlePrevPage = () => {
     setCurrentPage((prevPage) => (prevPage > 1 ? prevPage - 1 : 1));
   };
 
-  // Paginated products based on current page
 
-  console.log(filteredProducts,"fiiiiiiiiiiiiiii");
+
 
   const paginatedProducts = filteredProducts && filteredProducts.length > 0
     ? filteredProducts.slice(
@@ -168,14 +156,12 @@ const HomeScreen = () => {
     : [];
 
 
-  console.log(paginatedProducts);
-
   return (
     <ScrollView contentContainerStyle={styles.container}>
       <View style={styles.container}>
-        {/* Stylish search bar with navbar background */}
+        
         <View style={[styles.navbar,{flexWrap:isMobile ? "wrap-reverse":null}]}>
-        {/* {flexWrap:isMobile ? "wrap-reverse":null} */}
+      
           <View style={styles.searchBarContainer}>
             <TextInput
               style={styles.searchInput}
@@ -197,7 +183,7 @@ const HomeScreen = () => {
             <Text style={{ fontSize: 28 }}>🛒</Text>
           </TouchableOpacity>
 
-          {/* Favorite screen button */}
+          
           <TouchableOpacity
             style={styles.squareButton}
             onPress={() => navigation.navigate('FavouiriteItems')}
@@ -260,9 +246,7 @@ const searchBarMargin = width >= 600 ? 'auto' : 0;
 
 
 
-const isMobile = width < 768; // Assuming 768 is your breakpoint for mobile view
-
-
+const isMobile = width < 768;
 const styles = StyleSheet.create({
   container: {
     padding: 10,
