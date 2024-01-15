@@ -10,9 +10,9 @@ const favoriteReducer = (state = initialState, action) => {
       return {
         ...state,
         favoriteItems: [
-          ...(state.favoriteItems || []), // Ensure state.favoriteItems is an array
+          ...(state.favoriteItems || []), 
           action.payload && action.payload.id ? action.payload : null,
-        ].filter(Boolean), // Remove null values from the array
+        ].filter(Boolean), 
       };
 
     case 'REMOVE_FROM_FAVORITES':
