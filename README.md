@@ -1,5 +1,5 @@
 steps to run the project : 
-1) cd my_app
+1) cd screenproj
 2) npm install
 3) npx expo start --tunnel
 4) Install and open expogo app in mobile
